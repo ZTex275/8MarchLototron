@@ -1,0 +1,151 @@
+﻿<Window 
+    x:Class="MultiInstaller.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:MultiInstaller"
+    xmlns:Parallax="clr-namespace:Parallax.WPF.Controls;assembly=Parallax.WPF"
+    mc:Ignorable="d"
+    Icon="/REVALVE BY PKTBA blue.ico"
+    Width="1590" 
+    Height="530"
+    ResizeMode="CanMinimize">
+
+    <Grid>
+        <Grid>
+            <Parallax:MouseAwareParallaxContainer>
+                <Parallax:MouseAwareParallaxContainer.Layers>
+                    <Parallax:ParallaxImageLayer ImageSource="Images/Pktba.jpg"/>
+                </Parallax:MouseAwareParallaxContainer.Layers>
+            </Parallax:MouseAwareParallaxContainer>
+
+            <Button
+                Width="200"
+                Height="100"
+                Style="{StaticResource BorderlessButton}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                ToolTip="GraphViewer" 
+                Click="onClickButtonGraphViewer" Margin="148,72,0,0">
+                <Image Source="Images/GraphViewer.png"/>
+            </Button>
+            <TextBlock
+                VerticalAlignment="Top"
+                Foreground="White"
+                TextAlignment="Center"
+                Width="200"
+                Height="auto"
+                FontSize="24"
+                Text="GraphViewer" Margin="148,172,1242,0" />
+            <Button
+                Width="200"
+                Height="100"
+                Style="{StaticResource BorderlessButton}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                ToolTip="D14 Black" 
+                Click="onClickButtonD14Black" Margin="413,72,0,0">
+                <Image Source="Images/D14Black.png"/>
+            </Button>
+            <TextBlock
+                VerticalAlignment="Top"
+                Foreground="White"
+                TextAlignment="Center"
+                Width="200"
+                Height="auto"
+                FontSize="24"
+                Text="D14 Black" Margin="413,172,977,0" />
+            <Button
+                Width="200"
+                Height="100"
+                Style="{StaticResource BorderlessButton}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                ToolTip="SI25 Black" 
+                Click="onClickButtonSI25Black" Margin="673,72,0,0">
+                <Image Source="Images/D14Black.png"/>
+            </Button>
+            <TextBlock
+                VerticalAlignment="Top"
+                Foreground="White"
+                TextAlignment="Center"
+                Width="200"
+                Height="auto"
+                FontSize="24"
+                Text="SI25 Black" Margin="673,172,717,0" />
+            <Button
+                Width="200"
+                Height="100"
+                Style="{StaticResource BorderlessButton}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                ToolTip="CRS Black" 
+                Click="onClickButtonCRSBlack" Margin="930,72,0,0">
+                <Image Source="Images/D14Black.png"/>
+            </Button>
+            <TextBlock
+                VerticalAlignment="Top"
+                Foreground="White"
+                TextAlignment="Center"
+                Width="200"
+                Height="auto"
+                FontSize="24"
+                Text="CRS Black" Margin="930,172,460,0" />
+            <Button
+                Width="200"
+                Height="100"
+                Style="{StaticResource BorderlessButton}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                ToolTip="D14 White" 
+                Click="onClickButtonCRSWhite" Margin="1206,72,0,0">
+                <Image Source="Images/CRSWhiteOld.png"/>
+            </Button>
+            <TextBlock
+                VerticalAlignment="Top"
+                Foreground="White"
+                TextAlignment="Center"
+                Width="200"
+                Height="auto"
+                FontSize="24"
+                Text="CRS White" Margin="1206,172,184,0" />
+            <Button
+                Width="200"
+                Height="100"
+                Style="{StaticResource BorderlessButton}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                ToolTip="D14" 
+                Click="onClickButtonD14" Margin="313,330,0,0">
+                <Image Source="Images/D14.png"/>
+            </Button>
+            <TextBlock
+                VerticalAlignment="Top"
+                Foreground="White"
+                TextAlignment="Center"
+                Width="200"
+                Height="auto"
+                FontSize="24"
+                Text="D14" Margin="313,430,1077,0" />
+            <Button
+                Width="200"
+                Height="100"
+                Style="{StaticResource BorderlessButton}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                ToolTip="CRS" 
+                Click="onClickButtonCRS" Margin="1106,330,0,0">
+                <Image Source="Images/CRS.png"/>
+            </Button>
+            <TextBlock
+                VerticalAlignment="Top"
+                Foreground="White"
+                TextAlignment="Center"
+                Width="200"
+                Height="auto"
+                FontSize="24"
+                Text="CRS" Margin="1106,430,284,0" />
+        </Grid>
+    </Grid>
+</Window>
