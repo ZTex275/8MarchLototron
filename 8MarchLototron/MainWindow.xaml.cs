@@ -1,38 +1,44 @@
 ﻿using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
-using System.Media;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace MultiInstaller
+namespace MarchLototron
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        static int itterator = 0;
         List<string> randData;
         string soundsDir = Path.Combine(Directory.GetCurrentDirectory(), "Sounds");
+        static int itterator = 0;
+        static int krasndorCounter = 0;
+        static int zelinzerinCounter = 0;
+        static int jeltendyiCounter = 0;
+        static int sinevranCounter = 0;
 
         public MainWindow()
         {
             InitializeComponent();
 
+            // 4x8
             List<string> data = 
                 ["Красндор", "Красндор", "Красндор", "Красндор", "Красндор", "Красндор", "Красндор", "Красндор",
                  "Зелинзерин", "Зелинзерин", "Зелинзерин", "Зелинзерин", "Зелинзерин", "Зелинзерин", "Зелинзерин", "Зелинзерин",
-                 "Жёлтендуй", "Жёлтендуй", "Жёлтендуй", "Жёлтендуй", "Жёлтендуй", "Жёлтендуй", "Жёлтендуй", // Тут 7
+                 "Жёлтендуй", "Жёлтендуй", "Жёлтендуй", "Жёлтендуй", "Жёлтендуй", "Жёлтендуй", "Жёлтендуй", "Жёлтендуй",
                  "Синевран", "Синевран", "Синевран", "Синевран", "Синевран", "Синевран", "Синевран", "Синевран"];
 
             randData = Shuffle(data);
+
+            textblock_krasndor.Text = krasndorCounter.ToString();
+            textblock_zelinzerin.Text = zelinzerinCounter.ToString();
+            textblock_jeltendyi.Text = jeltendyiCounter.ToString();
+            textblock_sinevran.Text = sinevranCounter.ToString();
         }
 
         private async void onClickButtonStart(object sender, RoutedEventArgs e)
@@ -44,11 +50,14 @@ namespace MultiInstaller
 
             if (itterator >= randData.Count)
             {
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                player.SoundLocation = "Sounds/krasndor.wav";
-                player.Play();
+                if (File.Exists(Path.Combine(soundsDir, "krasndor.wav")))
+                {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                    // Дорогие девушки, поздравляю с праздником, а мне надо лететь по своим волшебным делам. Ту туУ ту ту тУ ТУУУУУУ ТУУУУУУ ТУУУ 
+                    player.SoundLocation = Path.Combine(soundsDir, "krasndor.wav"); // Другой wav
+                    player.Play();
+                }
 
-                //.mp3
                 await Task.Delay(5 * 1000);
                 App.Current.Shutdown();
                 return;
@@ -72,42 +81,61 @@ namespace MultiInstaller
                 textblock1.Foreground = new SolidColorBrush(Colors.White);
                 textblock1.Background = new SolidColorBrush(Colors.Red);
 
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                if (Directory.Exists(soundsDir))
+                if (File.Exists(Path.Combine(soundsDir, "krasndor.wav")))
+                {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer();
                     player.SoundLocation = Path.Combine(soundsDir, "krasndor.wav");
-                player.Play();
+                    player.Play();
+                }
+
+                krasndorCounter++;
+                textblock_krasndor.Text = krasndorCounter.ToString();
             }
             else if (randData[itterator] == "Зелинзерин")
             {
                 textblock1.Foreground = new SolidColorBrush(Colors.White);
                 textblock1.Background = new SolidColorBrush(Colors.Green);
 
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                if (Directory.Exists(soundsDir))
+                if (File.Exists(Path.Combine(soundsDir, "zelinzerin.wav")))
+                {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer();
                     player.SoundLocation = Path.Combine(soundsDir, "zelinzerin.wav");
-                player.Play();
+                    player.Play();
+                }
+
+                zelinzerinCounter++;
+                textblock_zelinzerin.Text = zelinzerinCounter.ToString();
             }
             else if(randData[itterator] == "Жёлтендуй")
             {
                 textblock1.Foreground = new SolidColorBrush(Colors.Black);
                 textblock1.Background = new SolidColorBrush(Colors.Yellow);
 
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                if (Directory.Exists(soundsDir))
+                if (File.Exists(Path.Combine(soundsDir, "jeltendyi.wav")))
+                {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer();
                     player.SoundLocation = Path.Combine(soundsDir, "jeltendyi.wav");
-                player.Play();
+                    player.Play();
+                }
+
+                jeltendyiCounter++;
+                textblock_jeltendyi.Text = jeltendyiCounter.ToString();
             }
             else if(randData[itterator] == "Синевран")
             {
                 textblock1.Foreground = new SolidColorBrush(Colors.White);
                 textblock1.Background = new SolidColorBrush(Colors.Blue);
 
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                if (Directory.Exists(soundsDir))
+                if (File.Exists(Path.Combine(soundsDir, "sinevran.wav")))
+                {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer();
                     player.SoundLocation = Path.Combine(soundsDir, "sinevran.wav");
-                player.Play();
+                    player.Play();
+                }
+
+                sinevranCounter++;
+                textblock_sinevran.Text = sinevranCounter.ToString();
             }
-            textblock1.Foreground = new SolidColorBrush(Colors.White);
             itterator++;
 
             textblock2.Text = $"Осталось: {randData.Count - itterator}";
@@ -128,9 +156,5 @@ namespace MultiInstaller
 
             return list;
         }
-
-        //SoundPlayer player = new SoundPlayer();
-        //player.Stream = Properties.Resources.Ding;
-        //player.Play();
     }
 }
